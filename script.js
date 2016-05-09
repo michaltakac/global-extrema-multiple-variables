@@ -235,7 +235,8 @@ scene // Zaciatok prvej sceny
         1: {props: {opacity: 1}},
         2: {props: {opacity: 0}},
         3: {props: {opacity: 1}},
-        10: {props: {opacity: .1}},
+        4: {props: {opacity: 0.1}},
+        5: {props: {opacity: 0}},
       }
     })
   .point({
@@ -283,46 +284,46 @@ scene // Zaciatok prvej sceny
   //     ]
   //   })
   // Ukazka prvej derivacie podla x v 2D, priamka
-  .interval({
-    length: 5000,
-    channels: 3,
-    live: false,
-    expr: function(emit, x, y, i, j){
-      y = 2*x;
-      emit(x, 0, y);
-    },
-  }).line({
-    size: 8,
-    color: 0x0074D9,
-  })
-    .step({
-      pace: 1,
-      script: {
-        0: {props: {opacity: 0}},
-        1: {props: {opacity: 0}},
-        2: {props: {opacity: 1}},
-        3: {props: {opacity: 0}},
-        4: {props: {opacity: 0}},
-        5: {props: {opacity: 0}},
-        6: {props: {opacity: 1}},
-      }
-    })
-  .point({
-    size: 8,
-    color: 0x0074D9,
-  })
-    .step({
-      pace: 1,
-      script: {
-        0: {props: {opacity: 0}},
-        1: {props: {opacity: 0}},
-        2: {props: {opacity: 1}},
-        3: {props: {opacity: 0}},
-        4: {props: {opacity: 0}},
-        5: {props: {opacity: 0}},
-        6: {props: {opacity: 1}},
-      }
-    })
+  // .interval({
+  //   length: 5000,
+  //   channels: 3,
+  //   live: false,
+  //   expr: function(emit, x, y, i, j){
+  //     y = 2*x;
+  //     emit(x, 0, y);
+  //   },
+  // }).line({
+  //   size: 8,
+  //   color: 0x0074D9,
+  // })
+  //   .step({
+  //     pace: 1,
+  //     script: {
+  //       0: {props: {opacity: 0}},
+  //       1: {props: {opacity: 0}},
+  //       2: {props: {opacity: 1}},
+  //       3: {props: {opacity: 0}},
+  //       4: {props: {opacity: 0}},
+  //       5: {props: {opacity: 0}},
+  //       6: {props: {opacity: 1}},
+  //     }
+  //   })
+  // .point({
+  //   size: 8,
+  //   color: 0x0074D9,
+  // })
+  //   .step({
+  //     pace: 1,
+  //     script: {
+  //       0: {props: {opacity: 0}},
+  //       1: {props: {opacity: 0}},
+  //       2: {props: {opacity: 1}},
+  //       3: {props: {opacity: 0}},
+  //       4: {props: {opacity: 0}},
+  //       5: {props: {opacity: 0}},
+  //       6: {props: {opacity: 1}},
+  //     }
+  //   })
     // Ukazka prvej derivacie podla y v 2D, horny polkruh
   .interval({
     length: 5000,
@@ -343,6 +344,31 @@ scene // Zaciatok prvej sceny
         0: {props: {opacity: 0}},
         1: {props: {opacity: 0}},
         2: {props: {opacity: 1}},
+        3: {props: {opacity: 1}},
+        4: {props: {opacity: 0.1}},
+      }
+    })
+  .interval({
+    length: 5000,
+    channels: 3,
+    live: false,
+    expr: function(emit, x, y, i, j){
+      y = -Math.sqrt(4-Math.pow(x, 2));
+      var func = Math.pow(x, 2) - Math.pow(y, 2);
+      emit(x, func, y);
+    },
+  })
+  .point({
+    size: 8,
+    color: '#b177e2',
+  })
+    .step({
+      pace: 1,
+      script: {
+        0: {props: {opacity: 0}},
+        1: {props: {opacity: 0}},
+        2: {props: {opacity: 0}},
+        3: {props: {opacity: 1}},
       }
     })
   // Ukazka prvej derivacie podla y v 2D, dolny polkruh
@@ -365,6 +391,31 @@ scene // Zaciatok prvej sceny
         0: {props: {opacity: 0}},
         1: {props: {opacity: 0}},
         2: {props: {opacity: 1}},
+        3: {props: {opacity: 1}},
+        4: {props: {opacity: 0.1}},
+      }
+    })
+  .interval({
+    length: 5000,
+    channels: 3,
+    live: false,
+    expr: function(emit, x, y, i, j){
+      y = Math.sqrt(4-Math.pow(x, 2));
+      var func = Math.pow(x, 2) - Math.pow(y, 2);
+      emit(x, func, y);
+    },
+  })
+  .point({
+    size: 8,
+    color: '#DFB100',
+  })
+    .step({
+      pace: 1,
+      script: {
+        0: {props: {opacity: 0}},
+        1: {props: {opacity: 0}},
+        2: {props: {opacity: 0}},
+        3: {props: {opacity: 1}},
       }
     })
   // Draw ticks and labels
@@ -423,8 +474,8 @@ scene // Zaciatok prvej sceny
         0: {props: {opacity: 0}},
         1: {props: {opacity: 0}},
         2: {props: {opacity: 0}},
-        3: {props: {opacity: 0}},
-        4: {props: {opacity: 1}},
+        3: {props: {opacity: 1}},
+        4: {props: {opacity: 0}},
       }
     })
   .array({
@@ -444,52 +495,51 @@ scene // Zaciatok prvej sceny
         0: {props: {opacity: 0}},
         1: {props: {opacity: 0}},
         2: {props: {opacity: 0}},
-        3: {props: {opacity: 0}},
-        4: {props: {opacity: 1}},
-        5: {props: {opacity: 0}},
+        3: {props: {opacity: 1}},
+        4: {props: {opacity: 0}},
       }
     })
 
 scene
   .slide({
     steps: 10,
-    from: 6
+    from: 4
   })
   .reveal({
     duration: 1
   })
   // Stacionarne body
-  .array({
-    //data: [[0,-4,2], [0,-4,-2], [-2,-12,4], [2,-12,4], [2,4,0], [-2,4,0]],
-    data: [[0,0,2], [0,0,-2], [-2,0,4], [2,0,4], [2,0,0], [-2,0,0]],
-    channels: 3, // necessary
-    live: false
-  })
-  .point({
-    size: 45,
-    color: 0xFAE900
-  })
-  .array({
-    //data: [[0,-5,2], [0,-5,-2], [-2,-14,4], [2,-14,4], [2,5,0], [-2,6,0]],
-    data: [[0,1,2], [0,1,-2], [-2,1,4], [2,1,4], [2,1,0], [-2,1,0]],
-    channels: 3, // necessary
-    live: false,
-  }).text({
-    data: ["A=[0,2]", "B=[0,-2]", "C=[-2,4]", "D=[2,4]", "E=[2,0]", "F=[-2,0]"],
-    weight: 'bold',
-    detail: 45
-  }).label({
-    color: 0xDB00BA,
-  })
+  // .array({
+  //   //data: [[0,-4,2], [0,-4,-2], [-2,-12,4], [2,-12,4], [2,4,0], [-2,4,0]],
+  //   data: [[0,0,2], [0,0,-2], [-2,0,4], [2,0,4], [2,0,0], [-2,0,0]],
+  //   channels: 3, // necessary
+  //   live: false
+  // })
+  // .point({
+  //   size: 45,
+  //   color: 0xFAE900
+  // })
+  // .array({
+  //   //data: [[0,-5,2], [0,-5,-2], [-2,-14,4], [2,-14,4], [2,5,0], [-2,6,0]],
+  //   data: [[0,1,2], [0,1,-2], [-2,1,4], [2,1,4], [2,1,0], [-2,1,0]],
+  //   channels: 3, // necessary
+  //   live: false,
+  // }).text({
+  //   data: ["A=[0,2]", "B=[0,-2]", "C=[-2,4]", "D=[2,4]", "E=[2,0]", "F=[-2,0]"],
+  //   weight: 'bold',
+  //   detail: 45
+  // }).label({
+  //   color: 0xDB00BA,
+  // })
   // Funkčné hodnoty
   .array({ // Bod A = [0, 2]
     items: 2,
     expr: function (emit) {
-      var x = 0;
-      var y = 2;
-      var func = Math.pow(x, 2) - Math.pow(y, 2);
-      emit(x, 0, y);
-      emit(x, func, y);
+      var x1 = 0;
+      var y1 = 2;
+      var func1= Math.pow(x1, 2) - Math.pow(y1, 2);
+      emit(x1, 0, y1);
+      emit(x1, func1, y1);
     },
     channels: 3,
   })
@@ -501,6 +551,7 @@ scene
     pace: 1,
     trigger: 1,
     script: [
+      {props: {scale: 0}},
       {props: {scale: 0}},
       {props: {scale: 1}},
     ]
@@ -522,19 +573,6 @@ scene
     trigger: 1,
     script: [
       {props: {opacity: 0}},
-      {props: {opacity: 1}},
-    ]
-  })
-  .text({
-    data: ["f(A)=-4"],
-  }).label({
-    color: "#803906",
-    colors: "#colors",
-  })
-  .step({
-    pace: 1,
-    trigger: 1,
-    script: [
       {props: {opacity: 0}},
       {props: {opacity: 1}},
     ]
@@ -559,6 +597,7 @@ scene
     trigger: 1,
     script: [
       {props: {scale: 0}},
+      {props: {scale: 0}},
       {props: {scale: 1}},
     ]
   })
@@ -578,6 +617,7 @@ scene
     pace: 1,
     trigger: 1,
     script: [
+      {props: {opacity: 0}},
       {props: {opacity: 0}},
       {props: {opacity: 1}},
     ]
@@ -593,123 +633,124 @@ scene
     trigger: 1,
     script: [
       {props: {opacity: 0}},
-      {props: {opacity: 1}},
-    ]
-  })
-  .array({ // Bod C = [-2, 4]
-    items: 2,
-    expr: function (emit) {
-      var x = -2;
-      var y = 4;
-      var func = Math.pow(x, 2) - Math.pow(y, 2);
-      emit(x, 0, y);
-      emit(x, func, y);
-    },
-    channels: 3,
-  })
-  .grow({
-    items: 'first',
-    scale: 1
-  })
-  .step({
-    pace: 1,
-    trigger: 1,
-    script: [
-      {props: {scale: 0}},
-      {props: {scale: 1}},
-    ]
-  })
-  // Connect footprint and point with line
-  .vector({
-    width: 3
-  })
-  // Draw second point only
-  .slice({
-    items: [1, 2]
-  })
-  .point({
-    size: 20,
-    color: "#803906",
-  })
-  .step({
-    pace: 1,
-    trigger: 1,
-    script: [
       {props: {opacity: 0}},
       {props: {opacity: 1}},
     ]
   })
-  .text({
-    data: ["f(C)=-12"],
-  }).label({
-    color: "#803906",
-    colors: "#colors",
-  })
-  .step({
-    pace: 1,
-    trigger: 1,
-    script: [
-      {props: {opacity: 0}},
-      {props: {opacity: 1}},
-    ]
-  })
-  .array({ // Bod D = [2, 4]
-    items: 2,
-    expr: function (emit) {
-      var x = 2;
-      var y = 4;
-      var func = Math.pow(x, 2) - Math.pow(y, 2);
-      emit(x, 0, y);
-      emit(x, func, y);
-    },
-    channels: 3,
-  })
-  .grow({
-    items: 'first',
-    scale: 1
-  })
-  .step({
-    pace: 1,
-    trigger: 1,
-    script: [
-      {props: {scale: 0}},
-      {props: {scale: 1}},
-    ]
-  })
-  // Connect footprint and point with line
-  .vector({
-    width: 3
-  })
-  // Draw second point only
-  .slice({
-    items: [1, 2]
-  })
-  .point({
-    size: 20,
-    color: "#803906",
-  })
-  .step({
-    pace: 1,
-    trigger: 1,
-    script: [
-      {props: {opacity: 0}},
-      {props: {opacity: 1}},
-    ]
-  })
-  .text({
-    data: ["f(D)=-12"],
-  }).label({
-    color: "#803906",
-    colors: "#colors",
-  })
-  .step({
-    pace: 1,
-    trigger: 1,
-    script: [
-      {props: {opacity: 0}},
-      {props: {opacity: 1}},
-    ]
-  })
+  // .array({ // Bod C = [-2, 4]
+  //   items: 2,
+  //   expr: function (emit) {
+  //     var x = -2;
+  //     var y = 4;
+  //     var func = Math.pow(x, 2) - Math.pow(y, 2);
+  //     emit(x, 0, y);
+  //     emit(x, func, y);
+  //   },
+  //   channels: 3,
+  // })
+  // .grow({
+  //   items: 'first',
+  //   scale: 1
+  // })
+  // .step({
+  //   pace: 1,
+  //   trigger: 1,
+  //   script: [
+  //     {props: {scale: 0}},
+  //     {props: {scale: 1}},
+  //   ]
+  // })
+  // // Connect footprint and point with line
+  // .vector({
+  //   width: 3
+  // })
+  // // Draw second point only
+  // .slice({
+  //   items: [1, 2]
+  // })
+  // .point({
+  //   size: 20,
+  //   color: "#803906",
+  // })
+  // .step({
+  //   pace: 1,
+  //   trigger: 1,
+  //   script: [
+  //     {props: {opacity: 0}},
+  //     {props: {opacity: 1}},
+  //   ]
+  // })
+  // .text({
+  //   data: ["f(C)=-12"],
+  // }).label({
+  //   color: "#803906",
+  //   colors: "#colors",
+  // })
+  // .step({
+  //   pace: 1,
+  //   trigger: 1,
+  //   script: [
+  //     {props: {opacity: 0}},
+  //     {props: {opacity: 1}},
+  //   ]
+  // })
+  // .array({ // Bod D = [2, 4]
+  //   items: 2,
+  //   expr: function (emit) {
+  //     var x = 2;
+  //     var y = 4;
+  //     var func = Math.pow(x, 2) - Math.pow(y, 2);
+  //     emit(x, 0, y);
+  //     emit(x, func, y);
+  //   },
+  //   channels: 3,
+  // })
+  // .grow({
+  //   items: 'first',
+  //   scale: 1
+  // })
+  // .step({
+  //   pace: 1,
+  //   trigger: 1,
+  //   script: [
+  //     {props: {scale: 0}},
+  //     {props: {scale: 1}},
+  //   ]
+  // })
+  // // Connect footprint and point with line
+  // .vector({
+  //   width: 3
+  // })
+  // // Draw second point only
+  // .slice({
+  //   items: [1, 2]
+  // })
+  // .point({
+  //   size: 20,
+  //   color: "#803906",
+  // })
+  // .step({
+  //   pace: 1,
+  //   trigger: 1,
+  //   script: [
+  //     {props: {opacity: 0}},
+  //     {props: {opacity: 1}},
+  //   ]
+  // })
+  // .text({
+  //   data: ["f(D)=-12"],
+  // }).label({
+  //   color: "#803906",
+  //   colors: "#colors",
+  // })
+  // .step({
+  //   pace: 1,
+  //   trigger: 1,
+  //   script: [
+  //     {props: {opacity: 0}},
+  //     {props: {opacity: 1}},
+  //   ]
+  // })
   .array({ // Bod E = [2, 0]
     items: 2,
     expr: function (emit) {
@@ -730,6 +771,7 @@ scene
     trigger: 1,
     script: [
       {props: {scale: 0}},
+      {props: {scale: 0}},
       {props: {scale: 1}},
     ]
   })
@@ -750,6 +792,7 @@ scene
     trigger: 1,
     script: [
       {props: {opacity: 0}},
+      {props: {opacity: 0}},
       {props: {opacity: 1}},
     ]
   })
@@ -763,6 +806,7 @@ scene
     pace: 1,
     trigger: 1,
     script: [
+      {props: {opacity: 0}},
       {props: {opacity: 0}},
       {props: {opacity: 1}},
     ]
@@ -787,6 +831,7 @@ scene
     trigger: 1,
     script: [
       {props: {scale: 0}},
+      {props: {scale: 0}},
       {props: {scale: 1}},
     ]
   })
@@ -807,6 +852,7 @@ scene
     trigger: 1,
     script: [
       {props: {opacity: 0}},
+      {props: {opacity: 0}},
       {props: {opacity: 1}},
     ]
   })
@@ -820,6 +866,7 @@ scene
     pace: 1,
     trigger: 1,
     script: [
+      {props: {opacity: 0}},
       {props: {opacity: 0}},
       {props: {opacity: 1}},
     ]
